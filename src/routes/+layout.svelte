@@ -1,6 +1,9 @@
 <script>
 	import { onMount } from 'svelte';
+	import Navbar from '$lib/components/Navbar.svelte';
 	import '../app.pcss';
+
+	const appname = import.meta.env.VITE_APPNAME;
 
 	async function detectSWUpdate(){
 		const registration = await navigator.serviceWorker.ready;
@@ -24,5 +27,10 @@
 	})
 
 </script>
-
-<slot />
+<h1>
+  {appname}
+</h1>
+<div class="m-4">
+	<Navbar />
+	<slot />
+</div>
